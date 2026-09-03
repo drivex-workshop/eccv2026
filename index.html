@@ -456,6 +456,142 @@
 
     .statistics-card { padding: 1rem; color: #f8fafc; font-size: 0.95rem; font-weight: 560; line-height: 1.45; }
 
+    .schedule-paper-pdf {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.28rem;
+      padding: 0.18rem 0.38rem;
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      border-radius: 999px;
+      color: var(--drivex-text-soft);
+      font-size: 0.62rem;
+      line-height: 1.2;
+      text-decoration: none;
+    }
+
+    .schedule-paper-pdf:hover { color: var(--drivex-primary); }
+
+    .accepted-papers-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1.15rem;
+    }
+
+    .accepted-paper-card {
+      background: var(--drivex-card-bg);
+      border-radius: var(--drivex-radius-xl);
+      border: var(--drivex-border-subtle);
+      box-shadow: var(--drivex-shadow-soft);
+      padding: 1rem 1.15rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      grid-template-rows: auto auto;
+      column-gap: 1.25rem;
+      row-gap: 0.4rem;
+      align-items: start;
+    }
+
+    .content h3.accepted-paper-title {
+      margin: 0;
+      grid-column: 1;
+      grid-row: 1;
+      color: #ffffff;
+      font-weight: 650;
+      font-size: 0.95rem;
+      line-height: 1.38;
+    }
+
+    .accepted-paper-meta {
+      margin: 0;
+      grid-column: 1;
+      grid-row: 2;
+      font-size: 0.76rem;
+      color: var(--drivex-text-soft);
+      line-height: 1.55;
+    }
+
+    .accepted-paper-badge {
+      display: inline-flex;
+      align-items: center;
+      margin-left: 0.4rem;
+      padding: 0.08rem 0.48rem;
+      border-radius: 999px;
+      font-size: 0.62rem;
+      font-weight: 650;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      vertical-align: middle;
+    }
+
+    .accepted-paper-badge.oral {
+      color: var(--drivex-primary);
+      border: 1px solid rgba(45, 212, 191, 0.45);
+      background: rgba(45, 212, 191, 0.1);
+    }
+
+    .accepted-paper-badge.poster {
+      color: var(--drivex-accent);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      background: rgba(56, 189, 248, 0.1);
+    }
+
+    .accepted-paper-actions {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+      align-self: center;
+      justify-self: end;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .accepted-paper-pdf {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.4rem 0.85rem;
+      border-radius: var(--drivex-radius-full);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      background: rgba(2, 6, 23, 0.65);
+      color: #e5e7eb;
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .accepted-paper-pdf:hover {
+      border-color: rgba(45, 212, 191, 0.6);
+      color: var(--drivex-primary);
+    }
+
+    .accepted-paper-note {
+      margin-top: 0.8rem;
+      font-size: 0.78rem;
+      color: var(--drivex-text-soft);
+    }
+
+    @media screen and (max-width: 640px) {
+      .accepted-paper-card {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+      }
+
+      .content h3.accepted-paper-title,
+      .accepted-paper-meta { grid-column: 1; }
+
+      .content h3.accepted-paper-title { grid-row: 1; }
+      .accepted-paper-meta { grid-row: 2; }
+
+      .accepted-paper-actions {
+        grid-column: 1;
+        grid-row: 3;
+        justify-self: start;
+        align-self: start;
+      }
+    }
+
     @media screen and (max-width: 1024px) {
       .schedule-session-header { flex-direction: column; align-items: flex-start; }
       .schedule-session-logo-wrap { min-width: 96px; height: 56px; }
@@ -707,6 +843,7 @@
         <a class="navbar-item" href="#schedule">Schedule</a>
         <a class="navbar-item" href="#speakers">Speakers</a>
         <a class="navbar-item" href="#paper-track">Paper Track</a>
+        <a class="navbar-item" href="#accepted-papers">Accepted Papers</a>
         <a class="navbar-item" href="#challenge">Challenge</a>
         <a class="navbar-item" href="#organizers">Organizers</a>
         <a class="navbar-item" href="#pc">Program Committee</a>
@@ -790,6 +927,7 @@
         <a href="#statistics" class="button is-small is-rounded is-light">Statistics</a>
         <a href="#speakers" class="button is-small is-rounded is-light">Speakers</a>
         <a href="#paper-track" class="button is-small is-rounded is-light">Paper Track</a>
+        <a href="#accepted-papers" class="button is-small is-rounded is-light">Accepted Papers</a>
         <a href="#challenge" class="button is-small is-rounded is-light">Challenge</a>
         <a href="#organizers" class="button is-small is-rounded is-light">Organizers</a>
         <a href="#pc" class="button is-small is-rounded is-light">Program Committee</a>
@@ -1079,7 +1217,7 @@
         <div class="card keynote-card statistics-card">👥 12 core organizers, 28 additional organizers</div>
         <div class="card keynote-card statistics-card">🤝 3 workshop sponsors</div>
       </div>
-      <p style="margin-top:1.25rem;">📚 <a href="https://openreview.net/group?id=thecvf.com/ECCV/2026/Workshop/DriveX_Archival" target="_blank" rel="noopener noreferrer">Accepted Papers</a></p>
+      <p style="margin-top:1.25rem;">📚 <a href="#accepted-papers">Accepted Papers</a></p>
     </div>
   </section>
 
@@ -1388,6 +1526,148 @@
         <b>Camera-Ready Deadline</b>: August 31, 2026 (23:59 PST)
       </li>
     </ul>
+  </div>
+</section>
+<section class="section" id="accepted-papers">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Accepted Papers</h2>
+    <p>
+      Camera-ready PDFs for the archival track. See also
+      <a href="https://openreview.net/group?id=thecvf.com/ECCV/2026/Workshop/DriveX_Archival#tab-accept-oral" target="_blank" rel="noopener noreferrer">OpenReview</a>.
+    </p>
+    <div class="accepted-papers-grid">
+      <article class="accepted-paper-card">
+        <h3 class="accepted-paper-title">Post-Training in End-to-End Autonomous Driving: Taxonomy, Methods, and Challenges</h3>
+        <p class="accepted-paper-meta">Ruining Yang, Leo Muxing Wang, Yixiao Chen, Tongfei Guo, Yi Xu, Can Cui, Zichong Yang, Yitian Zhang, Ziran Wang, Yun Fu, Lili Su <span class="accepted-paper-badge oral">Oral</span></p>
+        <div class="accepted-paper-actions"><a class="accepted-paper-pdf" href="https://openreview.net/pdf?id=URrOiLxDd0" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf"></i> PDF</a></div>
+      </article>
+      <article class="accepted-paper-card">
+        <h3 class="accepted-paper-title">How Far Can 5,500 Hours of Driving Take You? A Scaling Law Analysis of Video Diffusion Models</h3>
+        <p class="accepted-paper-meta">Victor Besnier, Anh-Quan Cao, Elias Ramzi, Spyros Gidaris, Tuan-Hung VU, Andrei Bursuc, Eloi Zablocki, Matthieu Cord <span class="accepted-paper-badge oral">Oral</span></p>
+        <div class="accepted-paper-actions"><a class="accepted-paper-pdf" href="https://openreview.net/pdf?id=V33on0TguP" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf"></i> PDF</a></div>
+      </article>
+      <article class="accepted-paper-card">
+        <h3 class="accepted-paper-title">DriveFaith: A Cross-Model Study of Reasoning--Action Faithfulness in Autonomous Driving</h3>
+        <p class="accepted-paper-meta">Sai Bhargav Rongali, Kenji Okuma <span class="accepted-paper-badge oral">Oral</span></p>
+        <div class="accepted-paper-actions"><a class="accepted-paper-pdf" href="https://openreview.net/pdf?id=54rue6Ktw0" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf"></i> PDF</a></div>
+      </article>
+      <article class="accepted-paper-card">
+        <h3 class="accepted-paper-title">MAGneT-3D: Monocular And Domain-Generalizable Temporal 3D Detection</h3>
+        <p class="accepted-paper-meta">Mohamed Kotb, Johannes Michael Meier, Christoph Reich, Oussema Dhaouadi, Luis Denninger, Daniel Cremers <span class="accepted-paper-badge oral">Oral</span></p>
+        <div class="accepted-paper-actions"><a class="accepted-paper-pdf" href="https://openreview.net/pdf?id=rNapnUCqmI" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf"></i> PDF</a></div>
+      </article>
+      <article class="accepted-paper-card">
+        <h3 class="accepted-paper-title">Emergent 3D Instance Segmentation from Self-Supervised Point Transformers</h3>
+        <p class="accepted-paper-meta">Ted Lentsch, Santiago Montiel-Marín, Holger Caesar, Julian F. P. Kooij <span class="accepted-paper-badge oral">Oral</span></p>
+        <div class="accepted-paper-actions"><a class="accepted-paper-pdf" href="https://openreview.net/pdf?id=fM2bUhWevS" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf"></i> PDF</a></div>
+      </article>
+      <article class="accepted-paper-card">
+        <h3 class="accepted-paper-title">Decoupling Geometry and Semantics for Robust Open-Vocabulary 3D Object Detection</h3>
+        <p class="accepted-paper-meta">Pedro Rafael Angélico Madureira, José Diogo Xavier Monteiro, Luis Filipe Teixeira <span class="accepted-paper-badge poster">Poster</span></p>
+        <div class="accepted-paper-actions"><a class="accepted-paper-pdf" href="https://openreview.net/pdf?id=5smvUjjQTT" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf"></i> PDF</a></div>
+      </article>
+      <article class="accepted-paper-card">
+        <h3 class="accepted-paper-title">VLMFusionOcc3D: VLM Assisted Multi-Modal 3D Semantic Occupancy Prediction</h3>
+        <p class="accepted-paper-meta">Abdullah Enes Doruk, Hasan Fehmi Ates <span class="accepted-paper-badge poster">Poster</span></p>
+        <div class="accepted-paper-actions"><a class="accepted-paper-pdf" href="https://openreview.net/pdf?id=GsbEa77Y7j" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf"></i> PDF</a></div>
+      </article>
+      <article class="accepted-paper-card">
+        <h3 class="accepted-paper-title">When Doing Nothing Wins: Motion Regime Imbalance in In-Cabin Driver Prediction</h3>
+        <p class="accepted-paper-meta">Likith Prabhu <span class="accepted-paper-badge poster">Poster</span></p>
+        <div class="accepted-paper-actions"><a class="accepted-paper-pdf" href="https://openreview.net/pdf?id=gml8sVaQT9" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf"></i> PDF</a></div>
+      </article>
+      <article class="accepted-paper-card">
+        <h3 class="accepted-paper-title">Depth-Wise Probing and Pruning of the Planning Token in a Driving Vision-Language-Action Model</h3>
+        <p class="accepted-paper-meta">Harisankar Babu, Benjamin Coors, Christopher Lang, Hendrik Berkemeyer, Tamim Asfour, Simon Föll <span class="accepted-paper-badge poster">Poster</span></p>
+        <div class="accepted-paper-actions"><a class="accepted-paper-pdf" href="https://openreview.net/pdf?id=GBTuiGvSzE" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf"></i> PDF</a></div>
+      </article>
+      <article class="accepted-paper-card">
+        <h3 class="accepted-paper-title">Interpretable Uncertainty-Aware Object Detection with Subjective Logic</h3>
+        <p class="accepted-paper-meta">Stefan Orf, Valentin Marotta, Svetlana Pavlitska, J. Marius Zöllner <span class="accepted-paper-badge poster">Poster</span></p>
+        <div class="accepted-paper-actions"><a class="accepted-paper-pdf" href="https://openreview.net/pdf?id=9WKChd4kiY" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf"></i> PDF</a></div>
+      </article>
+      <article class="accepted-paper-card">
+        <h3 class="accepted-paper-title">RSG-VLM: An Auditable Radar Scene-Graph Interface for Grounding Vision–Language Models in Driving-Scene Geometry</h3>
+        <p class="accepted-paper-meta">Bowei Zhang, Shangze Kong <span class="accepted-paper-badge poster">Poster</span></p>
+        <div class="accepted-paper-actions"><a class="accepted-paper-pdf" href="https://openreview.net/pdf?id=S3dvzOAWE5" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf"></i> PDF</a></div>
+      </article>
+      <article class="accepted-paper-card">
+        <h3 class="accepted-paper-title">GaussianOcc3D: Adaptive Multi-modal Fusion for 3D Occupancy Prediction Using Gaussians</h3>
+        <p class="accepted-paper-meta">Abdullah Enes Doruk, Hasan Fehmi Ates <span class="accepted-paper-badge poster">Poster</span></p>
+        <div class="accepted-paper-actions"><a class="accepted-paper-pdf" href="https://openreview.net/pdf?id=35rQk60DQT" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf"></i> PDF</a></div>
+      </article>
+      <article class="accepted-paper-card">
+        <h3 class="accepted-paper-title">BikeScenes: LiDAR Semantic Segmentation for Bicycles</h3>
+        <p class="accepted-paper-meta">Denniz Goren, Holger Caesar <span class="accepted-paper-badge poster">Poster</span></p>
+        <div class="accepted-paper-actions"><a class="accepted-paper-pdf" href="https://openreview.net/pdf?id=ALDtQIH8x9" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf"></i> PDF</a></div>
+      </article>
+      <article class="accepted-paper-card">
+        <h3 class="accepted-paper-title">SafeLand: Safe Autonomous Landing in Unknown Environments with Bayesian Semantic Mapping</h3>
+        <p class="accepted-paper-meta">Markus Gross, Andreas Greiner, Sai Bharadhwaj Matha, Felix Soest, Daniel Cremers, Henri Meeß <span class="accepted-paper-badge poster">Poster</span></p>
+        <div class="accepted-paper-actions"><a class="accepted-paper-pdf" href="https://openreview.net/pdf?id=9HI8HLpryT" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf"></i> PDF</a></div>
+      </article>
+      <article class="accepted-paper-card">
+        <h3 class="accepted-paper-title">BRIDGE: Bridging the Modality Gap in Semantic Adversarial Attacks on Vision-Language Models</h3>
+        <p class="accepted-paper-meta">Roman Prykhodchenko, Joanna Jaworek-Korjakowska <span class="accepted-paper-badge poster">Poster</span></p>
+        <div class="accepted-paper-actions"><a class="accepted-paper-pdf" href="https://openreview.net/pdf?id=Tv90enXXUX" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf"></i> PDF</a></div>
+      </article>
+      <article class="accepted-paper-card">
+        <h3 class="accepted-paper-title">4D-RaDiff: Latent Point Diffusion for 4D Radar Point Cloud Generation</h3>
+        <p class="accepted-paper-meta">Jimmie Kwok, Holger Caesar, Andras Palffy <span class="accepted-paper-badge poster">Poster</span></p>
+        <div class="accepted-paper-actions"><a class="accepted-paper-pdf" href="https://openreview.net/pdf?id=K9FcgP8IpS" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf"></i> PDF</a></div>
+      </article>
+      <article class="accepted-paper-card">
+        <h3 class="accepted-paper-title">PseudoMapLabeler: Confidence-Aware Pseudo-Label Generation for Semi-Supervised Online Mapping</h3>
+        <p class="accepted-paper-meta">Chikao Tsuchiya, Dhaval Bhanderi, David Ilstrup, Hsin-Min Cheng, Chris J Ostafew <span class="accepted-paper-badge poster">Poster</span></p>
+        <div class="accepted-paper-actions"><a class="accepted-paper-pdf" href="https://openreview.net/pdf?id=j1c5WH5swK" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf"></i> PDF</a></div>
+      </article>
+      <article class="accepted-paper-card">
+        <h3 class="accepted-paper-title">Robusto-2: Benchmarking Humans &amp; VLMs for Autonomous Driving in Lima &amp; New York City</h3>
+        <p class="accepted-paper-meta">Adrian Cespedes, Marcelo Chincha, Dunant Cusipuma, Victor Flores-Benites, David Ortega, Arturo Deza <span class="accepted-paper-badge poster">Poster</span></p>
+        <div class="accepted-paper-actions"><a class="accepted-paper-pdf" href="https://openreview.net/pdf?id=l5QwhkiKE0" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf"></i> PDF</a></div>
+      </article>
+      <article class="accepted-paper-card">
+        <h3 class="accepted-paper-title">Cooperative Interior-Exterior Perception for Driver Gaze Estimation</h3>
+        <p class="accepted-paper-meta">Georgios Markos Chatziloizos, Andrea Ancora, Barat Christian, Andrew I. Comport <span class="accepted-paper-badge poster">Poster</span></p>
+        <div class="accepted-paper-actions"><a class="accepted-paper-pdf" href="https://openreview.net/pdf?id=VPczfOAK6I" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf"></i> PDF</a></div>
+      </article>
+      <article class="accepted-paper-card">
+        <h3 class="accepted-paper-title">CMD: Class Margin Dispersion for Post-hoc Misclassification Detection</h3>
+        <p class="accepted-paper-meta">Anthony Fernando Judeson, Torsten Schön <span class="accepted-paper-badge poster">Poster</span></p>
+        <div class="accepted-paper-actions"><a class="accepted-paper-pdf" href="https://openreview.net/pdf?id=vXoAglgsmX" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf"></i> PDF</a></div>
+      </article>
+      <article class="accepted-paper-card">
+        <h3 class="accepted-paper-title">Inference-Time Attention Steering for Vision-Language-Action Driving Models</h3>
+        <p class="accepted-paper-meta">Darshan Nagendra Prasad, Lars Ullrich, Knut Graichen <span class="accepted-paper-badge poster">Poster</span></p>
+        <div class="accepted-paper-actions"><a class="accepted-paper-pdf" href="https://openreview.net/pdf?id=KgTHZRcIUz" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf"></i> PDF</a></div>
+      </article>
+      <article class="accepted-paper-card">
+        <h3 class="accepted-paper-title">UniDepth-LSS: Depth Foundation Model Priors for Camera-Only BEV Perception</h3>
+        <p class="accepted-paper-meta">Muhammad Adeel Hafeez, Muhammad Asad, Ganesh Sistu, Michael G. Madden, Ihsan Ullah <span class="accepted-paper-badge poster">Poster</span></p>
+        <div class="accepted-paper-actions"><a class="accepted-paper-pdf" href="https://openreview.net/pdf?id=1VRGuQvQXm" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf"></i> PDF</a></div>
+      </article>
+      <article class="accepted-paper-card">
+        <h3 class="accepted-paper-title">NARRATE: A Multimodal Real-World Australian Driving Dataset for Human-Centred Explanations in Automated Driving</h3>
+        <p class="accepted-paper-meta">Ashkan Yousefi Zadeh, Zishuo Zhu, Xiaomeng Li, Andry Rakotonirainy, Sebastien Glaser, Ronald Schroeter, Patricia Delhomme, Zahra Mehraban <span class="accepted-paper-badge poster">Poster</span></p>
+        <div class="accepted-paper-actions"><a class="accepted-paper-pdf" href="https://openreview.net/pdf?id=nrtSDkeKfh" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf"></i> PDF</a></div>
+      </article>
+      <article class="accepted-paper-card">
+        <h3 class="accepted-paper-title">CAViAR: A Causal Video Dataset for Fine-Grained Accident Reasoning in Real-World Scenarios</h3>
+        <p class="accepted-paper-meta">Sparsh Garg, Yi-Wen Chen, Vijay Kumar b g, Abhishek Aich <span class="accepted-paper-badge poster">Poster</span></p>
+        <div class="accepted-paper-actions"><a class="accepted-paper-pdf" href="https://openreview.net/pdf?id=5qPVXRwUBJ" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf"></i> PDF</a></div>
+      </article>
+      <article class="accepted-paper-card">
+        <h3 class="accepted-paper-title">SENSE: Stereo OpEN Vocabulary SEmantic Segmentation</h3>
+        <p class="accepted-paper-meta">Thomas Campagnolo, Ezio Malis, Philippe Martinet, Gaetan Bahl <span class="accepted-paper-badge poster">Poster</span></p>
+        <div class="accepted-paper-actions"><a class="accepted-paper-pdf" href="https://openreview.net/pdf?id=3JKs7B0LVE" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf"></i> PDF</a></div>
+      </article>
+      <article class="accepted-paper-card">
+        <h3 class="accepted-paper-title">CounterDrive: Data-Centric Adaptation of Open VLMs for Counterfactual Driving Reasoning</h3>
+        <p class="accepted-paper-meta">Yi-Wen Chen, Vijay Kumar b g, Sparsh Garg, Manmohan Chandraker <span class="accepted-paper-badge poster">Poster</span></p>
+        <div class="accepted-paper-actions"><a class="accepted-paper-pdf" href="https://openreview.net/pdf?id=IkHtiQFzK4" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf"></i> PDF</a></div>
+      </article>
+    </div>
+    <p class="accepted-paper-note">PDFs open on OpenReview.</p>
   </div>
 </section>
 <section class="section">
@@ -2540,11 +2820,11 @@
     };
 
     var oralPresenters = [
-      ['Ruining Yang', 'Northeastern University', './static/images/ruining_yang.jpeg', 'https://studyarchitecture.com/wp-content/uploads/Northeastern_University_Logo-White.png', 'End-to-end models that map multimodal inputs directly to future trajectories/maneuvers have emerged as an increasingly prominent research paradigm in autonomous driving. This class of models includes both Vision-Language-Action models and trajectory-generative planners. Unlike classic machine learning applications, autonomous vehicles operate in safety-critical and interaction-intensive environments where traditional open-loop imitation of expert demonstrations is not sufficient to ensure reliability. In particular, small execution errors can accumulate over time, while recovery behaviors are scarce in training data. In addition, long-horizon objectives such as safety and driving comfort are not captured by pointwise labels either. These limitations have motivated a shift toward post-training techniques, which further refine driving policies beyond pure imitation. This survey presents a unified view of post-training for autonomous driving by defining its scope and organizing the existing literature into four major families based on the form of supervision they use. For each family, we discuss its capabilities, limitations, and open challenges. We aim to facilitate a systematic understanding of this emerging area and stimulate future research on reliable and efficient post-training for autonomous driving.'],
-      ['Victor Besnier', 'Valeo', './static/images/victor_besnier.jpeg', 'https://logos-world.net/wp-content/uploads/2023/03/Valeo-Logo.png', 'Video generation for autonomous driving cannot follow the web-scale route: driving data is expensive to collect, bound by privacy requirements, and cannot be scraped at will, so models must make the most of a fixed corpus. We present a systematic scaling-law study of video diffusion models trained from scratch on driving data: a family of models from 1M to 9B parameters, trained at different exposures on up to 5,500 hours of driving. Validation loss follows consistent power laws in both model size and training exposure, answering the questions that shape a training budget: whether compute is better spent on longer training or on a larger model, and whether more data is needed. Loss improves much faster with training exposure than with model size, making longer training the most effective way to improve a fixed model under limited compute. However, larger models continue to achieve lower asymptotic loss, so compute-optimal scaling still favors increasing model size when sufficient compute and data are available. Guided by these laws, we train a 9B-parameter model, to our knowledge the largest video diffusion model trained from scratch on driving data: it sets a new open-source state of the art for driving video generation, as measured on nuScenes. Our code and pretrained models are available at https://github.com/valeoai/VATIX. NATIX is separately releasing the underlying driving data in stages.'],
+      ['Ruining Yang', 'Northeastern University', './static/images/ruining_yang.jpeg', 'https://studyarchitecture.com/wp-content/uploads/Northeastern_University_Logo-White.png', 'End-to-end models that map multimodal inputs directly to future trajectories/maneuvers have emerged as an increasingly prominent research paradigm in autonomous driving. This class of models includes both Vision-Language-Action models and trajectory-generative planners. Unlike classic machine learning applications, autonomous vehicles operate in safety-critical and interaction-intensive environments where traditional open-loop imitation of expert demonstrations is not sufficient to ensure reliability. In particular, small execution errors can accumulate over time, while recovery behaviors are scarce in training data. In addition, long-horizon objectives such as safety and driving comfort are not captured by pointwise labels either. These limitations have motivated a shift toward post-training techniques, which further refine driving policies beyond pure imitation. This survey presents a unified view of post-training for autonomous driving by defining its scope and organizing the existing literature into four major families based on the form of supervision they use. For each family, we discuss its capabilities, limitations, and open challenges. We aim to facilitate a systematic understanding of this emerging area and stimulate future research on reliable and efficient post-training for autonomous driving.', 'https://openreview.net/pdf?id=URrOiLxDd0'],
+      ['Victor Besnier', 'Valeo', './static/images/victor_besnier.jpeg', 'https://logos-world.net/wp-content/uploads/2023/03/Valeo-Logo.png', 'Video generation for autonomous driving cannot follow the web-scale route: driving data is expensive to collect, bound by privacy requirements, and cannot be scraped at will, so models must make the most of a fixed corpus. We present a systematic scaling-law study of video diffusion models trained from scratch on driving data: a family of models from 1M to 9B parameters, trained at different exposures on up to 5,500 hours of driving. Validation loss follows consistent power laws in both model size and training exposure, answering the questions that shape a training budget: whether compute is better spent on longer training or on a larger model, and whether more data is needed. Loss improves much faster with training exposure than with model size, making longer training the most effective way to improve a fixed model under limited compute. However, larger models continue to achieve lower asymptotic loss, so compute-optimal scaling still favors increasing model size when sufficient compute and data are available. Guided by these laws, we train a 9B-parameter model, to our knowledge the largest video diffusion model trained from scratch on driving data: it sets a new open-source state of the art for driving video generation, as measured on nuScenes. Our code and pretrained models are available at https://github.com/valeoai/VATIX. NATIX is separately releasing the underlying driving data in stages.', 'https://openreview.net/pdf?id=V33on0TguP'],
       ['Sudhanshu Mittal', 'University of Freiburg', 'https://lmb.informatik.uni-freiburg.de/people/images/mittal.jpg', 'https://ssl.earli.org/sites/default/files/inline-images/logoUniFreiburg.png', 'Current world models operate at a single level of abstraction, with most prioritizing perceptual fidelity while lacking the spatial reasoning and semantic understanding required for real-world downstream tasks. We present a hierarchical driving world model that factorizes future prediction across two levels operating at distinct temporal and abstraction scales: a high-level predictor that forecasts coarse scene structure over extended temporal horizons, and a low-level generator that produces detailed predictions conditioned on the high-level output. This decomposition yields high perceptual fidelity while also capturing strong spatial and semantic representations. We further show that pretraining with a diffusion forcing objective yields substantially richer internal representations than the standard teacher forcing objective, while teacher forcing — predicting only the next frame from clean context — produces more stable autoregressive rollouts. We therefore introduce a generic two-stage training paradigm that pretrains the model with diffusion forcing and fine-tunes with teacher forcing, combining the representational benefits of the former with the rollout stability of the latter. Our approach achieves state-of-the-art results across the standard suite of driving world model evaluations on established benchmarks, including long-horizon generation fidelity, steering responsiveness evaluated on counterfactual scenarios, and internal representation quality.'],
       ['Richard Schwarzkopf', 'FZI Research Center for Information Technology and Karlsruhe Institute of Technology', './static/images/richard_schwarzkopf.jpeg', 'https://upload.wikimedia.org/wikipedia/de/thumb/4/44/Fzi_logo.svg/330px-Fzi_logo.svg.png?utm_source=de.wikipedia.org&utm_campaign=index&utm_content=thumbnail', 'Existing autonomous driving datasets have enabled major progress, but fall short in sensor fidelity, map completeness, or geographic diversity. We present KITScenes Multimodal, a European dataset built around high-fidelity sensors and maps. Our fully synchronized sensor suite combines high-resolution global-shutter cameras, long-range lidar beyond 400 meters, 4D imaging radar, and redundant GNSS/INS localization. Our HD maps are, to our knowledge, the most complete of any sensor dataset, verified through autonomous driving trials on open-source software. For the first time in a public dataset, all driving-relevant traffic elements, such as traffic lights, are mapped in 3D to a reprojection-accurate level with full topological connectivity. Recorded in cities with irregular street layouts and mixed traffic modes, our dataset complements existing datasets by broadening the available geographic diversity. We also introduce four benchmarks, each advancing spatial learning for embodied AI: online HD map construction, long-range depth estimation, novel view synthesis, and end-to-end driving.'],
-      ['Ted Lentsch', 'Delft University of Technology', 'https://t.e7096c671.entry.domains/-jThIO_dQoPPl704Y2hVy6CoCgA=/278x371/filters:strip_exif()/https%3A%2F%2Ffilelist.tudelft.nl%2FPersonen%2Fk9d4d7.jpg%3Fhash%3D2c2dadac48', 'https://cdn.freebiesupply.com/logos/large/2x/tu-delft-2-logo-black-and-white.png', 'Unsupervised 3D instance segmentation of outdoor LiDAR scans has traditionally relied on handcrafted geometric priors such as density-based clustering, motion cues, or projected 2D detections. In this work, we investigate whether a frozen, self-supervised point transformer already contains the structural information required to isolate object instances without any handcrafted geometric prior. Using this transformer purely as a feature extractor, we probe its internal representations across the SemanticKITTI, nuScenes, and Waymo Perception datasets. Our analysis yields four core insights: (1) the instance signal concentrates in the attention queries and keys rather than in the values or final output features; (2) output features semantically collapse, merging adjacent same-class objects that the queries and keys keep distinct; (3) this instance signal is bimodal in depth, strongest at the shallowest and deepest encoder stages; and (4) this signal is driven predominantly by the rotary position encoding (RoPE), whose removal collapses its advantage. We put these findings into our method TokenGraph3D, a training-free segmenter that groups points via connected components on a key-similarity graph, using neither density-based clustering nor proximity priors. Under identical prior-free conditions, we substantially outperform output-feature baselines, making the emergent 3D instance structure visible.']
+      ['Ted Lentsch', 'Delft University of Technology', 'https://t.e7096c671.entry.domains/-jThIO_dQoPPl704Y2hVy6CoCgA=/278x371/filters:strip_exif()/https%3A%2F%2Ffilelist.tudelft.nl%2FPersonen%2Fk9d4d7.jpg%3Fhash%3D2c2dadac48', 'https://cdn.freebiesupply.com/logos/large/2x/tu-delft-2-logo-black-and-white.png', 'Unsupervised 3D instance segmentation of outdoor LiDAR scans has traditionally relied on handcrafted geometric priors such as density-based clustering, motion cues, or projected 2D detections. In this work, we investigate whether a frozen, self-supervised point transformer already contains the structural information required to isolate object instances without any handcrafted geometric prior. Using this transformer purely as a feature extractor, we probe its internal representations across the SemanticKITTI, nuScenes, and Waymo Perception datasets. Our analysis yields four core insights: (1) the instance signal concentrates in the attention queries and keys rather than in the values or final output features; (2) output features semantically collapse, merging adjacent same-class objects that the queries and keys keep distinct; (3) this instance signal is bimodal in depth, strongest at the shallowest and deepest encoder stages; and (4) this signal is driven predominantly by the rotary position encoding (RoPE), whose removal collapses its advantage. We put these findings into our method TokenGraph3D, a training-free segmenter that groups points via connected components on a key-similarity graph, using neither density-based clustering nor proximity priors. Under identical prior-free conditions, we substantially outperform output-feature baselines, making the emergent 3D instance structure visible.', 'https://openreview.net/pdf?id=fM2bUhWevS']
     ];
 
     function compactDetails(label, text) {
@@ -2581,7 +2861,11 @@
           card.innerHTML = '<div class="schedule-session-kicker"><span class="schedule-session-title">' + oralTitle + '</span><span class="schedule-label oral"><i class="fa fa-chalkboard"></i>Oral</span></div>';
         }
         if (oralPresenter) {
-          card.insertAdjacentHTML('beforeend', '<div class="schedule-panelist-actions">' + compactDetails('Abstract', oralPresenter[4]) + compactDetails('Bio', 'Speaker bio will be announced closer to the workshop date.') + '</div>');
+          var oralActions = compactDetails('Abstract', oralPresenter[4]) + compactDetails('Bio', 'Speaker bio will be announced closer to the workshop date.');
+          if (oralPresenter[5]) {
+            oralActions += '<a class="schedule-paper-pdf" href="' + oralPresenter[5] + '" target="_blank" rel="noopener noreferrer"><i class="fa fa-file-pdf"></i> PDF</a>';
+          }
+          card.insertAdjacentHTML('beforeend', '<div class="schedule-panelist-actions">' + oralActions + '</div>');
         }
         cell.replaceChildren(card);
         return;
