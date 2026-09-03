@@ -400,6 +400,67 @@
       background: rgba(9, 9, 11, 0.98);
     }
 
+    .schedule-table td:first-child { white-space: nowrap; }
+    .schedule-table td:last-child { white-space: normal; }
+
+    .schedule-session-card {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      padding: 0.9rem 1rem;
+      border: 1px solid rgba(148, 163, 253, 0.14);
+      border-radius: 16px;
+      background: rgba(15, 23, 42, 0.72);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
+    }
+
+    .schedule-speaker-header-link {
+      display: block;
+      margin: -4px -6px 0;
+      padding: 4px 6px 0;
+      border-radius: 12px;
+      color: inherit;
+      text-decoration: none;
+      transition: background 0.18s ease;
+    }
+
+    .schedule-speaker-header-link:hover { background: rgba(45, 212, 191, 0.08); }
+    .schedule-speaker-header-link:focus-visible { outline: 2px solid var(--drivex-primary); outline-offset: 2px; }
+
+    .schedule-session-header { display: flex; align-items: center; justify-content: space-between; gap: 0.9rem; }
+    .schedule-session-profile { display: flex; align-items: center; gap: 0.85rem; min-width: 0; }
+    .schedule-session-avatar { width: 116px; height: 116px; flex-shrink: 0; border: 2px solid rgba(148, 163, 253, 0.32); border-radius: 50%; box-shadow: 0 8px 20px rgba(15, 23, 42, 0.55); object-fit: cover; }
+    .schedule-session-text { min-width: 0; }
+    .schedule-session-kicker { display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.2rem; }
+    .schedule-session-title { color: #f9fafb; font-size: 0.88rem; font-weight: 620; letter-spacing: 0.01em; }
+    .schedule-session-name { margin: 0; color: #f9fafb; font-size: 0.94rem; font-weight: 620; }
+    .schedule-session-affiliation { margin: 0.12rem 0 0; color: var(--drivex-text-soft); font-size: 0.74rem; line-height: 1.5; }
+    .schedule-session-logo-wrap { display: flex; align-items: center; justify-content: center; flex-shrink: 0; min-width: 112px; height: 64px; }
+    .schedule-session-logo { max-width: 100%; max-height: 44px; object-fit: contain; }
+
+    /* Panelists share one compact schedule row instead of repeating full speaker cards. */
+    .schedule-panel-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(104px, 1fr)); gap: 0.7rem; margin-top: 0.15rem; }
+    .schedule-panelist { min-width: 0; text-align: center; }
+    .schedule-panelist-link { display: block; color: inherit; text-decoration: none; border-radius: 10px; padding: 0.25rem; }
+    .schedule-panelist-link:hover { background: rgba(45, 212, 191, 0.08); }
+    .schedule-panelist-avatar { width: 66px; height: 66px; object-fit: cover; border-radius: 50%; border: 2px solid rgba(148, 163, 253, 0.32); }
+    .schedule-panelist-name { margin: 0.25rem 0 0; color: #f9fafb; font-size: 0.72rem; font-weight: 620; line-height: 1.25; }
+    .schedule-panelist-logo { display: block; width: 52px; height: 22px; margin: 0.24rem auto 0; object-fit: contain; }
+    .schedule-panelist-actions { display: flex; justify-content: center; gap: 0.25rem; margin-top: 0.32rem; }
+    .schedule-detail { position: relative; }
+    .schedule-panelist-actions .schedule-detail summary { padding: 0.18rem 0.38rem; border: 1px solid rgba(148, 163, 253, 0.28); border-radius: 999px; color: var(--drivex-text-soft); font-size: 0.62rem; line-height: 1.2; }
+    .schedule-panelist-actions .schedule-detail summary::after { content: none; }
+    .schedule-panelist-actions .schedule-detail p { display: none; }
+    .schedule-panelist-actions .schedule-detail[open] p { display: block; position: absolute; z-index: 4; right: 0; width: min(260px, 70vw); padding: 0.65rem; border: 1px solid rgba(148, 163, 253, 0.2); border-radius: 10px; background: #0f172a; text-align: left; font-size: 0.7rem; }
+    @media screen and (max-width: 520px) { .schedule-panel-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+    .statistics-card { padding: 1rem; color: #f8fafc; font-size: 0.95rem; font-weight: 560; line-height: 1.45; }
+
+    @media screen and (max-width: 1024px) {
+      .schedule-session-header { flex-direction: column; align-items: flex-start; }
+      .schedule-session-logo-wrap { min-width: 96px; height: 56px; }
+    }
+
     .speaker-card,
     .organizer-card {
       background: var(--drivex-card-bg);
@@ -726,6 +787,7 @@
       <div class="anchor-buttons">
         <a href="#introduction" class="button is-small is-rounded is-light">Introduction</a>
         <a href="#schedule" class="button is-small is-rounded is-light">Schedule</a>
+        <a href="#statistics" class="button is-small is-rounded is-light">Statistics</a>
         <a href="#speakers" class="button is-small is-rounded is-light">Speakers</a>
         <a href="#paper-track" class="button is-small is-rounded is-light">Paper Track</a>
         <a href="#challenge" class="button is-small is-rounded is-light">Challenge</a>
@@ -851,7 +913,6 @@
                   <i class="fa fa-microphone"></i>Keynote</span>
               </td>
             </tr>
-            <tr></tr>
             <tr>
               <td>10:50 – 11:10</td>
               <td>Keynote 7 - Prof. Manmohan Chandraker (UCSD & NEC Labs)
@@ -879,7 +940,7 @@
             </tr>
             <tr>
               <td>13:00 – 13:20</td>
-              <td>Keynotes 9 - Prof. Marco Pavone (Stanford Uni. & NVIDIA)
+              <td>Keynote 9 - Vassia Simaiaki (Wayve)
                 <span class="schedule-label keynote">
                   <i class="fa fa-microphone"></i>Keynote</span>
               </td>
@@ -931,14 +992,7 @@
               </td>
             </tr>
             <tr>
-              <td>16:20 – 16:40</td>
-              <td>Keynotes 16 - Vassia Simaiaki (Wayve)
-                <span class="schedule-label keynote">
-                  <i class="fa fa-microphone"></i>Keynote</span>
-              </td>
-            </tr> 
-            <tr>
-              <td>16:40 – 17:00</td>
+              <td>16:20 – 17:00</td>
               <td>Panel Discussion II: Industry Track
                 <span class="schedule-label panel">
                   <i class="fa fa-comments"></i>Panel</span>
@@ -1012,160 +1066,25 @@
     </div>
   </section>
 
-  <section class="section" id="Keynote Speakers">
-
+  <section class="section" id="statistics">
     <div class="container is-max-desktop content">
-      <h2 class="title" id="speakers">Confirmed Keynote Speakers and Panelists (Academic Track)</h2>
-
-      <!-- Cordelia Schmid -->
-      <div class="card keynote-card">
-        <a class="keynote-link" href="https://cordeliaschmid.github.io/" target="_blank">
-          <div class="keynote-inner">
-            <div class="keynote-avatar-wrap">
-              <img class="keynote-avatar"
-                src="https://awards.acm.org/binaries/content/gallery/acm/awards/photo/s/schmid_3213623"
-                alt="Prof. Dr. Cordelia Schmid">
-            </div>
-            <div class="keynote-text">
-              <p class="keynote-name">Prof. Cordelia Schmid</p>
-              <p class="keynote-affiliation">INRIA, France</p>
-            </div>
-            <div class="keynote-logo-wrap">
-              <img class="keynote-logo" src="https://avatars.githubusercontent.com/u/2951919?s=280&v=4"
-                alt="INRIA Logo">
-            </div>
-          </div>
-        </a>
+      <h2 class="title">DriveX Workshop Statistics</h2>
+      <p>6th edition</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:0.85rem;margin-top:1.25rem;">
+        <div class="card keynote-card statistics-card">📄 54 archival and non-archival submissions</div>
+        <div class="card keynote-card statistics-card">👀 271 reviewers recruited</div>
+        <div class="card keynote-card statistics-card">📝 208 reviews submitted</div>
+        <div class="card keynote-card statistics-card">🏆 Acceptance rate: 12.8% oral, 62.9% poster</div>
+        <div class="card keynote-card statistics-card">🎙️ 7 academic keynote speakers, 8 industry keynote speakers</div>
+        <div class="card keynote-card statistics-card">👥 12 core organizers, 28 additional organizers</div>
+        <div class="card keynote-card statistics-card">🤝 3 workshop sponsors</div>
       </div>
-
-      <!-- Daniel Cremers -->
-      <div class="card keynote-card">
-        <a class="keynote-link" href="https://cvg.cit.tum.de/members/cremers" target="_blank">
-          <div class="keynote-inner">
-            <div class="keynote-avatar-wrap">
-              <img class="keynote-avatar"
-                src="https://scholar.googleusercontent.com/citations?view_op=view_photo&user=cXQciMEAAAAJ&citpid=4"
-                alt="Prof. Dr. Daniel Cremers">
-            </div>
-            <div class="keynote-text">
-              <p class="keynote-name">Prof. Dr. Daniel Cremers</p>
-              <p class="keynote-affiliation">Technical University of Munich, Germany</p>
-            </div>
-            <div class="keynote-logo-wrap">
-              <img class="keynote-logo"
-                src="https://upload.wikimedia.org/wikipedia/commons/c/c8/Logo_of_the_Technical_University_of_Munich.svg"
-                alt="TUM / DWIH Logo">
-            </div>
-          </div>
-        </a>
-      </div>
-
-      <!-- Andreas Geiger -->
-      <div class="card keynote-card">
-        <a class="keynote-link" href="https://www.cvlibs.net/" target="_blank">
-          <div class="keynote-inner">
-            <div class="keynote-avatar-wrap">
-              <img class="keynote-avatar"
-                src="https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=SrVnrPcAAAAJ&citpid=7"
-                alt="Prof. Andreas Geiger">
-            </div>
-            <div class="keynote-text">
-              <p class="keynote-name">Prof. Andreas Geiger</p>
-              <p class="keynote-affiliation">Uni. of Tübingen, Germany</p>
-            </div>
-            <div class="keynote-logo-wrap">
-              <img class="keynote-logo"
-                src="https://i0.wp.com/phreportcard.org/wp-content/uploads/2025/04/Eberhard-Karls-Universitat-Tubingen.png?fit=444%2C309&ssl=1"
-                alt="Uni. Tuebingen Logo">
-            </div>
-          </div>
-        </a>
-      </div>
-
-      <!-- Davide Scaramuzza -->
-      <div class="card keynote-card">
-        <a class="keynote-link" href="https://rpg.ifi.uzh.ch/people_scaramuzza.html" target="_blank">
-          <div class="keynote-inner">
-            <div class="keynote-avatar-wrap">
-              <img class="keynote-avatar" src="https://rpg.ifi.uzh.ch/img/people/davide3.jpg" alt="">
-            </div>
-            <div class="keynote-text">
-              <p class="keynote-name">Prof. Davide Scaramuzza</p>
-              <p class="keynote-affiliation">Uni. of Zurich (UZH), Switzerland</p>
-            </div>
-            <div class="keynote-logo-wrap">
-              <img class="keynote-logo"
-                src="https://sfdora.org/wp-content/uploads/2023/08/uzh_logo-white-on-transparent.png"
-                alt="Uni. of Zurich Logo">
-            </div>
-          </div>
-        </a>
-      </div>
-
-      <!-- Manmohan Chandraker -->
-      <div class="card keynote-card">
-        <a class="keynote-link" href="https://cseweb.ucsd.edu/~mkchandraker/" target="_blank">
-          <div class="keynote-inner">
-            <div class="keynote-avatar-wrap">
-              <img class="keynote-avatar"
-                src="http://fg2023.ieee-biometrics.org/assets/images/organizers/cropped-manmohan-chandraker.jpeg"
-                alt="Prof. Dr. Manmohan Chandraker">
-            </div>
-            <div class="keynote-text">
-              <p class="keynote-name">Prof. Dr. Manmohan Chandraker</p>
-              <p class="keynote-affiliation">University of California San Diego (UCSD), USA</p>
-            </div>
-            <div class="keynote-logo-wrap">
-              <img class="keynote-logo" src="https://logos-world.net/wp-content/uploads/2022/12/UCSD-Emblem.png"
-                alt="UCSD Logo">
-            </div>
-          </div>
-        </a>
-      </div>
-
-      <!-- Angela Dai -->
-      <div class="card keynote-card">
-        <a class="keynote-link" href="http://www.3dunderstanding.org/" target="_blank">
-          <div class="keynote-inner">
-            <div class="keynote-avatar-wrap">
-              <img class="keynote-avatar" src="https://www.3dunderstanding.org/team/00_angela_dai/picture.jpg"
-                alt="Prof. Dr. Angela Dai">
-            </div>
-            <div class="keynote-text">
-              <p class="keynote-name">Prof. Dr. Angela Dai</p>
-              <p class="keynote-affiliation">Technical University of Munich, Germany</p>
-            </div>
-            <div class="keynote-logo-wrap">
-              <img class="keynote-logo"
-                src="https://upload.wikimedia.org/wikipedia/commons/c/c8/Logo_of_the_Technical_University_of_Munich.svg"
-                alt="TUM / DWIH Logo">
-            </div>
-          </div>
-        </a>
-      </div>
-
-      <!-- Jiaqi Ma -->
-      <div class="card keynote-card">
-        <a class="keynote-link" href="https://mobility-lab.seas.ucla.edu/about/" target="_blank">
-          <div class="keynote-inner">
-            <div class="keynote-avatar-wrap">
-              <img class="keynote-avatar" src="static/img/jiaqi_ma.jpg" alt="Prof. Dr. Jiaqi Ma">
-            </div>
-            <div class="keynote-text">
-              <p class="keynote-name">Prof. Dr. Jiaqi Ma</p>
-              <p class="keynote-affiliation">University of California Los Angeles (UCLA), USA</p>
-            </div>
-            <div class="keynote-logo-wrap">
-              <img class="keynote-logo"
-                src="https://network4sustainablenano.org/wp-content/uploads/2021/03/ucla-logo-transparent-blue-1.png"
-                alt="UCLA Logo">
-            </div>
-          </div>
-        </a>
-      </div>
-
+      <p style="margin-top:1.25rem;">📚 <a href="https://openreview.net/group?id=thecvf.com/ECCV/2026/Workshop/DriveX_Archival" target="_blank" rel="noopener noreferrer">Accepted Papers</a></p>
     </div>
+  </section>
 
+  <!-- Industry speaker cards are now represented in the schedule. -->
+  <template id="archived-industry-speakers">
     <div class="container is-max-desktop content">
       <h2 class="title" id="speakers">Confirmed Keynote Speakers and Panelists (Industry Track)</h2>
       <!-- Marco Pavone -->
@@ -1385,7 +1304,7 @@
       </div>
 
     </div>
-  </section>
+  </template>
 </body>
 
 </html>
@@ -2520,6 +2439,14 @@
       <div style="text-align: center;">
         <img src="static/images/motional_logo.webp" alt="Motional Logo" style="height: 500px; width: auto;">
       </div>
+      <div style="text-align: center;">
+        <img src="https://ieee-itsc.org/2024/wp-content/uploads/sites/3/elementor/thumbs/itss_logo_white_rg-qozhysd82mtoorx08p54oad9zwtr7mg4r085ehkvvg.png"
+          alt="IEEE Intelligent Transportation Systems Society (ITSS) Logo" style="height: 120px; width: auto;">
+      </div>
+      <div style="text-align: center;">
+        <img src="https://www.pngkey.com/png/full/194-1949410_ucf-logo-u-of-central-florida-logo.png"
+          alt="University of Central Florida Logo" style="height: 120px; width: auto;">
+      </div>
     </div>
     <p style="text-align: center; margin-bottom: 1.5rem;">
       DriveX 2026 welcomes sponsorship from industry, startups, and institutions interested in foundation models,
@@ -2584,6 +2511,90 @@
         });
         btn.classList.add('is-active');
       });
+    });
+
+    var scheduleSpeakers = [
+      ['Walter Zimmer', 'Dr. Walter Zimmer', 'University of California Los Angeles (UCLA) & Technical University of Munich (TUM), USA', 'https://walzimmer.github.io/website/', 'https://avatars.githubusercontent.com/u/22540236?v=4', 'https://network4sustainablenano.org/wp-content/uploads/2021/03/ucla-logo-transparent-blue-1.png', 'Opening Keynote'],
+      ['Jiaqi Ma', 'Prof. Dr. Jiaqi Ma', 'University of California Los Angeles (UCLA), USA', 'https://mobility-lab.seas.ucla.edu/about/', 'static/img/jiaqi_ma.jpg', 'https://network4sustainablenano.org/wp-content/uploads/2021/03/ucla-logo-transparent-blue-1.png', 'Keynote 2'],
+      ['Angela Dai', 'Prof. Dr. Angela Dai', 'Technical University of Munich, Germany', 'http://www.3dunderstanding.org/', 'https://www.3dunderstanding.org/team/00_angela_dai/picture.jpg', 'https://upload.wikimedia.org/wikipedia/commons/c/c8/Logo_of_the_Technical_University_of_Munich.svg', 'Keynote 3'],
+      ['Cordelia Schmid', 'Prof. Cordelia Schmid', 'INRIA, France', 'https://cordeliaschmid.github.io/', 'https://awards.acm.org/binaries/content/gallery/acm/awards/photo/s/schmid_3213623', 'https://avatars.githubusercontent.com/u/2951919?s=280&v=4', 'Keynote 4'],
+      ['Andreas Geiger', 'Prof. Andreas Geiger', 'University of Tübingen, Germany', 'https://www.cvlibs.net/', 'https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=SrVnrPcAAAAJ&citpid=7', 'https://i0.wp.com/phreportcard.org/wp-content/uploads/2025/04/Eberhard-Karls-Universitat-Tubingen.png?fit=444%2C309&ssl=1', 'Keynote 5'],
+      ['Davide Scaramuzza', 'Prof. Davide Scaramuzza', 'University of Zurich (UZH), Switzerland', 'https://rpg.ifi.uzh.ch/people_scaramuzza.html', 'https://rpg.ifi.uzh.ch/img/people/davide3.jpg', 'https://sfdora.org/wp-content/uploads/2023/08/uzh_logo-white-on-transparent.png', 'Keynote 6'],
+      ['Manmohan Chandraker', 'Prof. Dr. Manmohan Chandraker', 'University of California San Diego (UCSD), USA', 'https://cseweb.ucsd.edu/~mkchandraker/', 'http://fg2023.ieee-biometrics.org/assets/images/organizers/cropped-manmohan-chandraker.jpeg', 'https://logos-world.net/wp-content/uploads/2022/12/UCSD-Emblem.png', 'Keynote 7'],
+      ['Daniel Cremers', 'Prof. Dr. Daniel Cremers', 'Technical University of Munich, Germany', 'https://cvg.cit.tum.de/members/cremers', 'https://scholar.googleusercontent.com/citations?view_op=view_photo&user=cXQciMEAAAAJ&citpid=4', 'https://upload.wikimedia.org/wikipedia/commons/c/c8/Logo_of_the_Technical_University_of_Munich.svg', 'Keynote 8'],
+      ['Boris Ivanovic', 'Dr. Boris Ivanovic', 'NVIDIA, USA', 'https://www.borisivanovic.com', 'https://www.borisivanovic.com/img/profile.jpg', 'static/images/nvidia_logo.png', 'Keynote 10'],
+      ['José Álvarez', 'Dr. José M. Álvarez', 'NVIDIA, USA', 'https://alvarezlopezjosem.github.io/', 'https://alvarezlopezjosem.github.io/data/jose_alvarez_4.jpg', 'static/images/nvidia_logo.png', 'Keynote 11'],
+      ['Laura Leal-Taixé', 'Prof. Laura Leal-Taixé', 'NVIDIA, USA', 'https://research.nvidia.com/labs/dvl/author/laura-leal-taixe', 'https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=tT2TC-UAAAAJ&citpid=7', 'static/images/nvidia_logo.png', 'Keynote 12'],
+      ['Tony (Xuewei) Qi', 'Dr. Tony (Xuewei) Qi', 'Motional, USA', 'https://scholar.google.com/citations?hl=en&user=pOA6uKMAAAAJ&view_op=list_works&sortby=pubdate', 'static/images/Tony_Qi_2026.png', 'static/images/motional_logo.webp', 'Keynote 13'],
+      ['Katie Luo', 'Dr. Katie Luo', 'Waymo, USA', 'https://katieluo88.github.io', 'https://research.nvidia.com/sites/default/files/graduate-fellow-profiles/2023-02/Katie_Luo.photo_.cropped_2.jpg', 'https://lh3.googleusercontent.com/ctASdLuZYGQrx0zPIz008qxM2-O2F4Ng-t6gAgAvyxDvuUXHjexPtEkehQhDzdByQIRwzlZVpe4B01FRHYyXhuAsMHbO_MndAHg=e365-s1440-rw-v1', 'Keynote 14'],
+      ['Federico Tombari', 'PD Dr. habil. Federico Tombari', 'Google, USA', 'https://federicotombari.github.io', 'https://federicotombari.github.io/images/portrait.jpg', 'https://www.logo.wine/a/logo/Google/Google-Logo.wine.svg', 'Keynote 15'],
+      ['Vassia Simaiaki', 'Vassia Simaiaki', 'Wayve, UK', 'https://www.linkedin.com/in/vassia-wayve/', 'static/images/vassia_simaiaki.png', 'static/images/wayve_logo.png', 'From Road Miles to Compute - Scaling Autonomous Driving with World Models', 'Autonomous driving has long scaled through road miles: larger fleets, more data, and more physical testing. World models offer a complementary path, turning compute into a scalable engine for simulation and evaluation. This talk traces their evolution from realistic scene generation to interactive, multimodal environments that place the driving policy inside the loop. We will highlight GAIA-4, Wayve’s latest world model, and explore how closed-loop camera and radar generation can produce counterfactual futures grounded in real journeys, enabling repeatable evaluation of end-to-end driving behaviour.', 'Vassia Simaiaki is passionate about taking research into application and has spent the last decade of her career in computer vision and deep learning. She leads AI research and development at Wayve, focusing on pushing the boundaries of generative simulation and world modelling continuing to accelerate the driving performance and evaluation of autonomous vehicles.'],
+      ['Vittorio Ferrari', 'Dr. Vittorio Ferrari', 'Meta, Switzerland', 'https://scholar.google.com/citations?user=4QvYJ00AAAAJ&hl=en', 'https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=4QvYJ00AAAAJ&citpid=1', 'https://raw.githubusercontent.com/lobehub/lobe-icons/refs/heads/master/packages/static-png/dark/meta-brand-color.png', 'Panelist'],
+      ['Erik Rosén', 'Dr. Erik Rosén', 'Zenseact, Sweden', 'https://www.zenseact.com/', 'static/img/erik_rosen.png', 'static/img/zenseact_logo.png', 'Panelist'],
+      ['Ashok Elluswamy', 'Ashok Elluswamy', 'Tesla, USA', 'https://www.linkedin.com/in/eashokkumar', 'https://wdfm-ad.github.io/assets/img/headshots/Ashok-1400.webp', 'https://upload.wikimedia.org/wikipedia/commons/e/e8/Tesla_logo.png', 'Keynote 17']
+    ];
+
+    var panelists = {
+      'Panel Discussion I': ['Jiaqi Ma', 'Angela Dai', 'Cordelia Schmid', 'Andreas Geiger', 'Davide Scaramuzza', 'Manmohan Chandraker', 'Daniel Cremers'],
+      'Panel Discussion II': ['Vassia Simaiaki', 'Boris Ivanovic', 'José Álvarez', 'Laura Leal-Taixé', 'Tony (Xuewei) Qi', 'Katie Luo', 'Federico Tombari', 'Vittorio Ferrari', 'Erik Rosén']
+    };
+
+    var oralPresenters = [
+      ['Ruining Yang', 'Northeastern University', './static/images/ruining_yang.jpeg', 'https://studyarchitecture.com/wp-content/uploads/Northeastern_University_Logo-White.png', 'End-to-end models that map multimodal inputs directly to future trajectories/maneuvers have emerged as an increasingly prominent research paradigm in autonomous driving. This class of models includes both Vision-Language-Action models and trajectory-generative planners. Unlike classic machine learning applications, autonomous vehicles operate in safety-critical and interaction-intensive environments where traditional open-loop imitation of expert demonstrations is not sufficient to ensure reliability. In particular, small execution errors can accumulate over time, while recovery behaviors are scarce in training data. In addition, long-horizon objectives such as safety and driving comfort are not captured by pointwise labels either. These limitations have motivated a shift toward post-training techniques, which further refine driving policies beyond pure imitation. This survey presents a unified view of post-training for autonomous driving by defining its scope and organizing the existing literature into four major families based on the form of supervision they use. For each family, we discuss its capabilities, limitations, and open challenges. We aim to facilitate a systematic understanding of this emerging area and stimulate future research on reliable and efficient post-training for autonomous driving.'],
+      ['Victor Besnier', 'Valeo', './static/images/victor_besnier.jpeg', 'https://logos-world.net/wp-content/uploads/2023/03/Valeo-Logo.png', 'Video generation for autonomous driving cannot follow the web-scale route: driving data is expensive to collect, bound by privacy requirements, and cannot be scraped at will, so models must make the most of a fixed corpus. We present a systematic scaling-law study of video diffusion models trained from scratch on driving data: a family of models from 1M to 9B parameters, trained at different exposures on up to 5,500 hours of driving. Validation loss follows consistent power laws in both model size and training exposure, answering the questions that shape a training budget: whether compute is better spent on longer training or on a larger model, and whether more data is needed. Loss improves much faster with training exposure than with model size, making longer training the most effective way to improve a fixed model under limited compute. However, larger models continue to achieve lower asymptotic loss, so compute-optimal scaling still favors increasing model size when sufficient compute and data are available. Guided by these laws, we train a 9B-parameter model, to our knowledge the largest video diffusion model trained from scratch on driving data: it sets a new open-source state of the art for driving video generation, as measured on nuScenes. Our code and pretrained models are available at https://github.com/valeoai/VATIX. NATIX is separately releasing the underlying driving data in stages.'],
+      ['Sudhanshu Mittal', 'University of Freiburg', 'https://lmb.informatik.uni-freiburg.de/people/images/mittal.jpg', 'https://ssl.earli.org/sites/default/files/inline-images/logoUniFreiburg.png', 'Current world models operate at a single level of abstraction, with most prioritizing perceptual fidelity while lacking the spatial reasoning and semantic understanding required for real-world downstream tasks. We present a hierarchical driving world model that factorizes future prediction across two levels operating at distinct temporal and abstraction scales: a high-level predictor that forecasts coarse scene structure over extended temporal horizons, and a low-level generator that produces detailed predictions conditioned on the high-level output. This decomposition yields high perceptual fidelity while also capturing strong spatial and semantic representations. We further show that pretraining with a diffusion forcing objective yields substantially richer internal representations than the standard teacher forcing objective, while teacher forcing — predicting only the next frame from clean context — produces more stable autoregressive rollouts. We therefore introduce a generic two-stage training paradigm that pretrains the model with diffusion forcing and fine-tunes with teacher forcing, combining the representational benefits of the former with the rollout stability of the latter. Our approach achieves state-of-the-art results across the standard suite of driving world model evaluations on established benchmarks, including long-horizon generation fidelity, steering responsiveness evaluated on counterfactual scenarios, and internal representation quality.'],
+      ['Richard Schwarzkopf', 'FZI Research Center for Information Technology and Karlsruhe Institute of Technology', './static/images/richard_schwarzkopf.jpeg', 'https://upload.wikimedia.org/wikipedia/de/thumb/4/44/Fzi_logo.svg/330px-Fzi_logo.svg.png?utm_source=de.wikipedia.org&utm_campaign=index&utm_content=thumbnail', 'Existing autonomous driving datasets have enabled major progress, but fall short in sensor fidelity, map completeness, or geographic diversity. We present KITScenes Multimodal, a European dataset built around high-fidelity sensors and maps. Our fully synchronized sensor suite combines high-resolution global-shutter cameras, long-range lidar beyond 400 meters, 4D imaging radar, and redundant GNSS/INS localization. Our HD maps are, to our knowledge, the most complete of any sensor dataset, verified through autonomous driving trials on open-source software. For the first time in a public dataset, all driving-relevant traffic elements, such as traffic lights, are mapped in 3D to a reprojection-accurate level with full topological connectivity. Recorded in cities with irregular street layouts and mixed traffic modes, our dataset complements existing datasets by broadening the available geographic diversity. We also introduce four benchmarks, each advancing spatial learning for embodied AI: online HD map construction, long-range depth estimation, novel view synthesis, and end-to-end driving.'],
+      ['Ted Lentsch', 'Delft University of Technology', 'https://t.e7096c671.entry.domains/-jThIO_dQoPPl704Y2hVy6CoCgA=/278x371/filters:strip_exif()/https%3A%2F%2Ffilelist.tudelft.nl%2FPersonen%2Fk9d4d7.jpg%3Fhash%3D2c2dadac48', 'https://cdn.freebiesupply.com/logos/large/2x/tu-delft-2-logo-black-and-white.png', 'Unsupervised 3D instance segmentation of outdoor LiDAR scans has traditionally relied on handcrafted geometric priors such as density-based clustering, motion cues, or projected 2D detections. In this work, we investigate whether a frozen, self-supervised point transformer already contains the structural information required to isolate object instances without any handcrafted geometric prior. Using this transformer purely as a feature extractor, we probe its internal representations across the SemanticKITTI, nuScenes, and Waymo Perception datasets. Our analysis yields four core insights: (1) the instance signal concentrates in the attention queries and keys rather than in the values or final output features; (2) output features semantically collapse, merging adjacent same-class objects that the queries and keys keep distinct; (3) this instance signal is bimodal in depth, strongest at the shallowest and deepest encoder stages; and (4) this signal is driven predominantly by the rotary position encoding (RoPE), whose removal collapses its advantage. We put these findings into our method TokenGraph3D, a training-free segmenter that groups points via connected components on a key-similarity graph, using neither density-based clustering nor proximity priors. Under identical prior-free conditions, we substantially outperform output-feature baselines, making the emergent 3D instance structure visible.']
+    ];
+
+    function compactDetails(label, text) {
+      return '<details class="schedule-detail"><summary>' + label + '</summary><p>' + text + '</p></details>';
+    }
+
+    function renderPanel(cell, names) {
+      var original = cell.textContent.trim().replace(/\s*Panel$/, '');
+      var card = document.createElement('div');
+      card.className = 'schedule-session-card';
+      card.innerHTML = '<div class="schedule-session-kicker"><span class="schedule-session-title">' + original + '</span><span class="schedule-label panel"><i class="fa fa-comments"></i>Panel</span></div><div class="schedule-panel-grid">' + names.map(function (name) {
+        var speaker = scheduleSpeakers.find(function (item) { return item[0] === name; });
+        return '<div class="schedule-panelist"><a class="schedule-panelist-link" href="' + speaker[3] + '" target="_blank" rel="noopener noreferrer"><img class="schedule-panelist-avatar" src="' + speaker[4] + '" alt="' + speaker[1] + '"></a></div>';
+      }).join('') + '</div>';
+      cell.replaceChildren(card);
+    }
+
+    document.querySelectorAll('#schedule tbody tr').forEach(function (row) {
+      var cell = row.querySelector('td:nth-child(2)');
+      if (!cell) return;
+      var panel = Object.keys(panelists).find(function (title) { return cell.textContent.trim().indexOf(title + ':') === 0; });
+      if (panel) { renderPanel(cell, panelists[panel]); return; }
+      var speaker = scheduleSpeakers.find(function (item) { return cell.textContent.indexOf(item[0]) !== -1; });
+      var oralMatch = cell.textContent.match(/^\s*Oral Presentation (\d):/);
+      var oralPresenter = oralMatch ? oralPresenters[Number(oralMatch[1]) - 1] : null;
+      if (!speaker && cell.textContent.trim().indexOf('Oral Presentation') !== 0) return;
+      var card = document.createElement('div');
+      card.className = 'schedule-session-card';
+      if (!speaker) {
+        var oralTitle = cell.textContent.trim().replace(/\s*Oral$/, '');
+        if (oralPresenter) {
+          card.innerHTML = '<div class="schedule-session-header"><div class="schedule-session-profile"><img class="schedule-session-avatar" src="' + oralPresenter[2] + '" alt="' + oralPresenter[0] + '"><div class="schedule-session-text"><div class="schedule-session-kicker"><span class="schedule-session-title">' + oralTitle + '</span><span class="schedule-label oral"><i class="fa fa-chalkboard"></i>Oral</span></div><p class="schedule-session-name">' + oralPresenter[0] + '</p><p class="schedule-session-affiliation">' + oralPresenter[1] + '</p></div></div><div class="schedule-session-logo-wrap"><img class="schedule-session-logo" src="' + oralPresenter[3] + '" alt=""></div></div>';
+        } else {
+          card.innerHTML = '<div class="schedule-session-kicker"><span class="schedule-session-title">' + oralTitle + '</span><span class="schedule-label oral"><i class="fa fa-chalkboard"></i>Oral</span></div>';
+        }
+        if (oralPresenter) {
+          card.insertAdjacentHTML('beforeend', '<div class="schedule-panelist-actions">' + compactDetails('Abstract', oralPresenter[4]) + compactDetails('Bio', 'Speaker bio will be announced closer to the workshop date.') + '</div>');
+        }
+        cell.replaceChildren(card);
+        return;
+      }
+      var link = document.createElement('a');
+      link.className = 'schedule-speaker-header-link';
+      link.href = speaker[3];
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.innerHTML = '<div class="schedule-session-header"><div class="schedule-session-profile"><img class="schedule-session-avatar" src="' + speaker[4] + '" alt="' + speaker[1] + '"><div class="schedule-session-text"><div class="schedule-session-kicker"><span class="schedule-session-title">' + speaker[6] + '</span><span class="schedule-label keynote"><i class="fa fa-microphone"></i>Keynote</span></div><p class="schedule-session-name">' + speaker[1] + '</p><p class="schedule-session-affiliation">' + speaker[2] + '</p></div></div><div class="schedule-session-logo-wrap"><img class="schedule-session-logo" src="' + speaker[5] + '" alt=""></div></div>';
+      card.appendChild(link);
+      card.insertAdjacentHTML('beforeend', '<div class="schedule-panelist-actions">' + compactDetails('Abstract', speaker[7] || 'Abstract will be announced closer to the workshop date.') + compactDetails('Bio', speaker[8] || 'Speaker bio will be announced closer to the workshop date.') + '</div>');
+      cell.replaceChildren(card);
     });
   });</script>
 </body>

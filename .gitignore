@@ -197,3 +197,9 @@ fabric.properties
 
 # vs code
 .vscode
+
+# temp files
+.swp
+
+# codex
+.codex
