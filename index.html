@@ -435,8 +435,8 @@
     .schedule-session-title { color: #f9fafb; font-size: 0.88rem; font-weight: 620; letter-spacing: 0.01em; }
     .schedule-session-name { margin: 0; color: #f9fafb; font-size: 0.94rem; font-weight: 620; }
     .schedule-session-affiliation { margin: 0.12rem 0 0; color: var(--drivex-text-soft); font-size: 0.74rem; line-height: 1.5; }
-    .schedule-session-logo-wrap { display: flex; align-items: center; justify-content: center; flex-shrink: 0; min-width: 112px; height: 64px; }
-    .schedule-session-logo { max-width: 100%; max-height: 44px; object-fit: contain; }
+    .schedule-session-logo-wrap { display: flex; align-items: center; justify-content: center; flex-shrink: 0; min-width: 112px; height: 78px; }
+    .schedule-session-logo { max-width: 100%; max-height: 64px; object-fit: contain; }
 
     /* Panelists share one compact schedule row instead of repeating full speaker cards. */
     .schedule-panel-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(104px, 1fr)); gap: 0.7rem; margin-top: 0.15rem; }
@@ -605,7 +605,7 @@
 
     @media screen and (max-width: 1024px) {
       .schedule-session-header { flex-direction: column; align-items: flex-start; }
-      .schedule-session-logo-wrap { min-width: 96px; height: 56px; }
+      .schedule-session-logo-wrap { min-width: 96px; height: 72px; }
     }
 
     .speaker-card,
@@ -1096,7 +1096,7 @@
             </tr>
             <tr>
               <td>13:20 – 13:40</td>
-              <td>Keynotes 10 - Dr. Boris Ivanovic (NVIDIA)
+              <td>Keynotes 10 - Dr. Peter Karkus (NVIDIA)
                 <span class="schedule-label keynote">
                   <i class="fa fa-microphone"></i>Keynote</span>
               </td>
@@ -1110,7 +1110,7 @@
             </tr>
             <tr>
               <td>14:00 – 14:20</td>
-              <td>Keynotes 12 - Dr. Federico Tombari (Google)
+              <td>Keynotes 14 - Dr. Katie Luo (Waymo)
                 <span class="schedule-label keynote">
                   <i class="fa fa-microphone"></i>Keynote</span>
               </td>
@@ -1124,18 +1124,29 @@
             </tr>
             <tr>
               <td>14:40 – 15:00</td>
-              <td>Keynotes 14 - Dr. Katie Luo (Waymo)
+              <td>Keynotes 15 - Dr. Federico Tombari (Google)
                 <span class="schedule-label keynote">
                   <i class="fa fa-microphone"></i>Keynote</span>
               </td>
             </tr>
             <tr>
+              <td>15:00 – 15:40</td>
+              <td>Coffee Break</td>
+            </tr>
+            <tr>
               <td>15:00 – 16:00</td>
-              <td>Coffee Break & Poster Session II</td>
+              <td>Poster Session II</td>
+            </tr>
+            <tr>
+              <td>15:40 – 16:00</td>
+              <td>Nomadic AI Demo - Akshay Gopalkrishnan
+                <span class="schedule-label keynote">
+                  <i class="fa fa-microphone"></i>Keynote</span>
+              </td>
             </tr>
             <tr>
               <td>16:00 – 16:20</td>
-              <td>Keynotes 15 - Prof. Laura Leal-Taixé (NVIDIA)
+              <td>Keynotes 12 - Prof. Laura Leal-Taixé (NVIDIA)
                 <span class="schedule-label keynote">
                   <i class="fa fa-microphone"></i>Keynote</span>
               </td>
@@ -1249,15 +1260,15 @@
         </a>
       </div>
 
-      <!-- Boris Ivanovic -->
+      <!-- Peter Karkus -->
       <div class="card keynote-card">
-        <a class="keynote-link" href="https://www.borisivanovic.com" target="_blank">
+        <a class="keynote-link" href="https://research.nvidia.com/person/peter-karkus" target="_blank">
           <div class="keynote-inner">
             <div class="keynote-avatar-wrap">
-              <img class="keynote-avatar" src="https://www.borisivanovic.com/img/profile.jpg" alt="">
+              <img class="keynote-avatar" src="static/images/peter.jpeg" alt="">
             </div>
             <div class="keynote-text">
-              <p class="keynote-name">Dr. Boris Ivanovic</p>
+              <p class="keynote-name">Dr. Peter Karkus</p>
               <p class="keynote-affiliation">NVIDIA, USA</p>
             </div>
             <div class="keynote-logo-wrap">
@@ -2782,6 +2793,9 @@
         <img src="static/images/motional_logo.webp" alt="Motional Logo" style="height: 500px; width: auto;">
       </div>
       <div style="text-align: center;">
+        <img src="static/images/nomadic_logo_light.png" alt="Nomadic AI Logo" style="height: 120px; width: auto;">
+      </div>
+      <div style="text-align: center;">
         <img src="https://ieee-itsc.org/2024/wp-content/uploads/sites/3/elementor/thumbs/itss_logo_white_rg-qozhysd82mtoorx08p54oad9zwtr7mg4r085ehkvvg.png"
           alt="IEEE Intelligent Transportation Systems Society (ITSS) Logo" style="height: 120px; width: auto;">
       </div>
@@ -2864,11 +2878,13 @@
       ['Davide Scaramuzza', 'Prof. Davide Scaramuzza', 'University of Zurich (UZH), Switzerland', 'https://rpg.ifi.uzh.ch/people_scaramuzza.html', 'https://rpg.ifi.uzh.ch/img/people/davide3.jpg', 'https://sfdora.org/wp-content/uploads/2023/08/uzh_logo-white-on-transparent.png', 'Keynote 6'],
       ['Manmohan Chandraker', 'Prof. Dr. Manmohan Chandraker', 'University of California San Diego (UCSD), USA', 'https://cseweb.ucsd.edu/~mkchandraker/', 'http://fg2023.ieee-biometrics.org/assets/images/organizers/cropped-manmohan-chandraker.jpeg', 'https://logos-world.net/wp-content/uploads/2022/12/UCSD-Emblem.png', 'Keynote 7'],
       ['Daniel Cremers', 'Prof. Dr. Daniel Cremers', 'Technical University of Munich, Germany', 'https://cvg.cit.tum.de/members/cremers', 'https://scholar.googleusercontent.com/citations?view_op=view_photo&user=cXQciMEAAAAJ&citpid=4', 'https://upload.wikimedia.org/wikipedia/commons/c/c8/Logo_of_the_Technical_University_of_Munich.svg', 'Keynote 8'],
-      ['Boris Ivanovic', 'Dr. Boris Ivanovic', 'NVIDIA, USA', 'https://www.borisivanovic.com', 'https://www.borisivanovic.com/img/profile.jpg', 'static/images/nvidia_logo.png', 'Keynote 10'],
+      ['Peter Karkus', 'Dr. Peter Karkus', 'NVIDIA, USA', 'https://research.nvidia.com/person/peter-karkus', 'static/images/peter.jpeg', 'static/images/nvidia_logo.png', 'Keynote 10: The Alpamayo Open Platform for Autonomous Driving: Reasoning VLAs, End-to-End Simulation, and Closed-Loop RL', 'In this talk I will introduce Alpamayo, NVIDIA\'s open platform for reasoning-based autonomous vehicle development. Alpamayo contains a family of open-weight reasoning VLA models that produce interpretable chain-of-thought traces alongside trajectories. It also includes the critical tooling around them: among others, 1,700 hours of curated driving data; and AlpaSim, a neural reconstruction-based end-to-end simulator. Finally, I will talk about a next frontier: closed-loop RL post-training of large VLA or WAM models using AlpaGym, our distributed closed-loop RL framework built on top of AlpaSim and Cosmos RL.', 'Peter Karkus is a Senior Research Scientist at NVIDIA, at the Autonomous Systems and Physical AI Research Group. He obtained his PhD from the National University of Singapore, and has previously held visiting research appointments at MIT, CMU, Google, and DeepMind. His research interests include autonomous driving, robotics and machine learning, with particular focus on end-to-end vision-language-action models, world models, closed-loop evaluation and reinforcement learning.'],
       ['José Álvarez', 'Dr. José M. Álvarez', 'NVIDIA, USA', 'https://alvarezlopezjosem.github.io/', 'https://alvarezlopezjosem.github.io/data/jose_alvarez_4.jpg', 'static/images/nvidia_logo.png', 'Keynote 11'],
       ['Laura Leal-Taixé', 'Prof. Laura Leal-Taixé', 'NVIDIA, USA', 'https://research.nvidia.com/labs/dvl/author/laura-leal-taixe', 'https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=tT2TC-UAAAAJ&citpid=7', 'static/images/nvidia_logo.png', 'Keynote 12'],
       ['Tony (Xuewei) Qi', 'Dr. Tony (Xuewei) Qi', 'Motional, USA', 'https://scholar.google.com/citations?hl=en&user=pOA6uKMAAAAJ&view_op=list_works&sortby=pubdate', 'static/images/Tony_Qi_2026.png', 'static/images/motional_logo.webp', 'Keynote 13'],
       ['Katie Luo', 'Dr. Katie Luo', 'Waymo, USA', 'https://katieluo88.github.io', 'https://research.nvidia.com/sites/default/files/graduate-fellow-profiles/2023-02/Katie_Luo.photo_.cropped_2.jpg', 'https://lh3.googleusercontent.com/ctASdLuZYGQrx0zPIz008qxM2-O2F4Ng-t6gAgAvyxDvuUXHjexPtEkehQhDzdByQIRwzlZVpe4B01FRHYyXhuAsMHbO_MndAHg=e365-s1440-rw-v1', 'Keynote 14'],
+      ['Akshay Gopalkrishnan', 'Akshay Gopalkrishnan', 'Nomadic AI', 'https://www.linkedin.com/in/akshay-gp/', 'static/images/akshay.jpeg', 'static/images/nomadic_logo_light.png', 'Nomadic AI Demo'],
+      ['Flavian Pegado', 'Flavian Pegado', 'Wayve', 'https://www.linkedin.com/in/pegadoflavian', 'static/images/flavian.jpeg', 'static/images/wayve_logo.png', 'Panelist'],
       ['Federico Tombari', 'PD Dr. habil. Federico Tombari', 'Google, USA', 'https://federicotombari.github.io', 'https://federicotombari.github.io/images/portrait.jpg', 'https://www.logo.wine/a/logo/Google/Google-Logo.wine.svg', 'Keynote 15'],
       ['Vassia Simaiaki', 'Vassia Simaiaki', 'Wayve, UK', 'https://www.linkedin.com/in/vassia-wayve/', 'static/images/vassia_simaiaki.png', 'static/images/wayve_logo.png', 'From Road Miles to Compute - Scaling Autonomous Driving with World Models', 'Autonomous driving has long scaled through road miles: larger fleets, more data, and more physical testing. World models offer a complementary path, turning compute into a scalable engine for simulation and evaluation. This talk traces their evolution from realistic scene generation to interactive, multimodal environments that place the driving policy inside the loop. We will highlight GAIA-4, Wayve’s latest world model, and explore how closed-loop camera and radar generation can produce counterfactual futures grounded in real journeys, enabling repeatable evaluation of end-to-end driving behaviour.', 'Vassia Simaiaki is passionate about taking research into application and has spent the last decade of her career in computer vision and deep learning. She leads AI research and development at Wayve, focusing on pushing the boundaries of generative simulation and world modelling continuing to accelerate the driving performance and evaluation of autonomous vehicles.'],
       ['Vittorio Ferrari', 'Dr. Vittorio Ferrari', 'Meta, Switzerland', 'https://scholar.google.com/citations?user=4QvYJ00AAAAJ&hl=en', 'https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=4QvYJ00AAAAJ&citpid=1', 'https://raw.githubusercontent.com/lobehub/lobe-icons/refs/heads/master/packages/static-png/dark/meta-brand-color.png', 'Panelist'],
@@ -2877,7 +2893,7 @@
 
     var panelists = {
       'Panel Discussion I': ['Jiaqi Ma', 'Angela Dai', 'Cordelia Schmid', 'Davide Scaramuzza', 'Andreas Geiger', 'Manmohan Chandraker', 'Daniel Cremers'],
-      'Panel Discussion II': ['Vassia Simaiaki', 'Boris Ivanovic', 'José Álvarez', 'Federico Tombari', 'Laura Leal-Taixé', 'Tony (Xuewei) Qi', 'Katie Luo', 'Vittorio Ferrari', 'Erik Rosén']
+      'Panel Discussion II': ['Vassia Simaiaki', 'Peter Karkus', 'José Álvarez', 'Federico Tombari', 'Laura Leal-Taixé', 'Tony (Xuewei) Qi', 'Katie Luo', 'Akshay Gopalkrishnan', 'Flavian Pegado', 'Vittorio Ferrari', 'Erik Rosén']
     };
 
     var oralPresenters = [
